@@ -1,4 +1,25 @@
 {
+  "name": "nancheng/pfinal-ImgToBinary",
+  "description": "This is a PHP image binarization library",
+  "authors": [
+    {
+      "name": "南丞",
+      "email": "Lampxiezi@163.com",
+      "homepage": "http://friday-go.cc/"
+    }
+  ],
+  "homepage":"https://github.com/Neroxiezi/pfinal-ImgToBinary",
+  "license": "MIT",
+  "keywords": [
+    "pfinal",
+    "南丞",
+    "Q哥",
+    "images",
+    "php-images"
+  ],
+  "require": {
+    "php": ">=5.4.0"
+  },
   "autoload": {
     "psr-4": {
       "pf\\img\\": "src/"
