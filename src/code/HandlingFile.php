@@ -20,9 +20,14 @@ trait HandlingFile
     {
         if (!file_exists($file_path)) return false;
         $this->filePath = $file_path;
+        $this->imgSize = $this->get_size($this->filePath);
+        if ($this->imgSize['width'] > 300 || $this->imgSize['height'] > 300) {
+            $this->filePath = $this->set_img_compress($this->filePath);
+        }
         $img_format = end(explode('.', $this->filePath));
-        if (!in_array($img_format, $this->allow)) {
 
+        if (!in_array($img_format, $this->allow)) {
+            return false;
         } else {
             if ($img_format == 'png') {
                 $this->ImageInfo = imagecreatefrompng($this->filePath);
@@ -30,7 +35,6 @@ trait HandlingFile
                 $this->ImageInfo = imagecreatefromjpeg($this->filePath);
             }
         }
-        $this->imgSize = $this->get_size($this->filePath);
         return $this;
     }
 
@@ -89,5 +93,13 @@ trait HandlingFile
             }
         }
         return $erzhiArray;
+    }
+
+    /**
+     * 压缩图片
+     */
+    private function set_img_compress()
+    {
+
     }
 }
